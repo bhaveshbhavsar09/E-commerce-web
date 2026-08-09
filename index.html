@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bazario — Everything, delivered</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=DM+Sans:wght@400;500;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ============ UTILITY BAR ============ -->
+<div class="utility-bar">
+  <div class="wrap utility-inner">
+    <span class="utility-item">Delivering joy to <strong>Your place</strong></span>
+    <div class="utility-links">
+      <a href="#">Track order</a>
+      <a href="#">Help centre</a>
+      <a href="#">Sell on Bazario</a>
+    </div>
+  </div>
+</div>
+
+<!-- ============ HEADER ============ -->
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a href="#" class="logo">Bazario<span class="logo-dot">.</span></a>
+
+    <form class="search-form" role="search">
+      <select class="search-scope" aria-label="Search category">
+        <option>All categories</option>
+        <option>Electronics</option>
+        <option>Fashion</option>
+        <option>Home &amp; Living</option>
+        <option>Beauty</option>
+        <option>Grocery</option>
+      </select>
+      <input type="text" placeholder="Search for products, brands and more" aria-label="Search">
+      <button type="submit" aria-label="Search">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/><path d="M21 21L16.65 16.65" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+    </form>
+
+    <nav class="header-actions">
+      <a href="#" class="action-item">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 21C12 21 4 15.5 4 9.5C4 6.5 6.5 4 9.5 4C11 4 12 5 12 5C12 5 13 4 14.5 4C17.5 4 20 6.5 20 9.5C20 15.5 12 21 12 21Z" stroke="currentColor" stroke-width="1.8"/></svg>
+        <span>Wishlist</span>
+      </a>
+      <a href="#" class="action-item">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4 4H6L6.5 7M6.5 7H20L18 14H8M6.5 7L8 14M8 14L6.5 17H18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="9" cy="20" r="1.4" fill="currentColor"/><circle cx="17" cy="20" r="1.4" fill="currentColor"/></svg>
+        <span>Cart</span>
+        <span class="cart-count" id="cartCount">3</span>
+      </a>
+      <a href="#" class="action-item account-item">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="3.4" stroke="currentColor" stroke-width="1.8"/><path d="M4.5 20C5.8 16.3 8.5 14.5 12 14.5C15.5 14.5 18.2 16.3 19.5 20" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        <span>Account</span>
+      </a>
+    </nav>
+
+    <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+
+  <nav class="category-nav" id="categoryNav">
+    <div class="wrap category-nav-inner">
+      <a href="#deals" class="cat-link highlight">Today's Deals</a>
+      <a href="#categories">Electronics</a>
+      <a href="#categories">Fashion</a>
+      <a href="#categories">Home &amp; Living</a>
+      <a href="#categories">Beauty</a>
+      <a href="#categories">Grocery</a>
+      <a href="#categories">Footwear</a>
+      <a href="#categories">Sports</a>
+      <a href="#brands">Brands</a>
+    </div>
+  </nav>
+</header>
+
+<main>
+
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <div class="wrap hero-inner">
+      <div class="hero-copy">
+        <p class="eyebrow">Festive Bazaar &middot; Aug 08&ndash;15</p>
+        <h1>Shop the season's<br><em>biggest</em> price drop.</h1>
+        <p class="hero-sub">Up to 70% off electronics, fashion, home and grocery — with next-day delivery across 19,000+ pin codes.</p>
+        <div class="hero-cta-row">
+          <a href="#deals" class="btn btn-primary">Shop flash deals</a>
+          <a href="#categories" class="btn btn-ghost">Browse categories</a>
+        </div>
+        <ul class="hero-trust">
+          <li>Free delivery on orders ₹499+</li>
+          <li>7-day easy returns</li>
+          <li>100% secure payments</li>
+        </ul>
+      </div>
+
+      <div class="ticket" aria-label="Flash sale countdown">
+        <div class="ticket-top">
+          <span class="ticket-label">Flash Sale</span>
+          <span class="ticket-serial">NO. 00-4471</span>
+        </div>
+        <p class="ticket-headline">Extra 20% off<br>on your first cart</p>
+        <div class="ticket-perf" aria-hidden="true"></div>
+        <div class="ticket-bottom">
+          <p class="ticket-code">CODE&nbsp; <strong>WELCOME20</strong></p>
+          <div class="countdown" id="countdown" aria-live="polite">
+            <div class="cd-unit"><span id="cd-h">05</span><label>hrs</label></div>
+            <div class="cd-unit"><span id="cd-m">42</span><label>min</label></div>
+            <div class="cd-unit"><span id="cd-s">18</span><label>sec</label></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CATEGORY GRID ============ -->
+  <section class="categories" id="categories">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Shop by category</h2>
+        <a href="#" class="see-all">See all &rarr;</a>
+      </div>
+      <div class="category-grid">
+        <a class="cat-card" href="#"><span class="cat-swatch swatch-1"></span><span class="cat-name">Electronics</span></a>
+        <a class="cat-card" href="#"><span class="cat-swatch swatch-2"></span><span class="cat-name">Fashion</span></a>
+        <a class="cat-card" href="#"><span class="cat-swatch swatch-3"></span><span class="cat-name">Home &amp; Living</span></a>
+        <a class="cat-card" href="#"><span class="cat-swatch swatch-4"></span><span class="cat-name">Beauty</span></a>
+        <a class="cat-card" href="#"><span class="cat-swatch swatch-5"></span><span class="cat-name">Grocery</span></a>
+        <a class="cat-card" href="#"><span class="cat-swatch swatch-6"></span><span class="cat-name">Footwear</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FLASH DEALS ============ -->
+  <section class="deals" id="deals">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Flash deals &mdash; ends tonight</h2>
+        <a href="#" class="see-all">View all deals &rarr;</a>
+      </div>
+
+      <div class="product-grid">
+
+        <article class="product-card">
+          <div class="product-thumb thumb-1"><span class="badge badge-sale">-42%</span></div>
+          <div class="product-body">
+            <p class="product-name">Wireless Over-Ear Headphones, Active Noise Cancelling</p>
+            <div class="rating"><span class="stars" style="--pct:88%"></span><span class="rating-count">(2,341)</span></div>
+            <div class="price-row">
+              <span class="price">₹3,499</span>
+              <span class="price-strike">₹5,999</span>
+            </div>
+            <p class="delivery-note">Free delivery tomorrow</p>
+            <button class="btn btn-add">Add to cart</button>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <div class="product-thumb thumb-2"><span class="badge badge-sale">-30%</span></div>
+          <div class="product-body">
+            <p class="product-name">Men's Slim Fit Cotton Casual Shirt &mdash; Pack of 2</p>
+            <div class="rating"><span class="stars" style="--pct:76%"></span><span class="rating-count">(897)</span></div>
+            <div class="price-row">
+              <span class="price">₹899</span>
+              <span class="price-strike">₹1,299</span>
+            </div>
+            <p class="delivery-note">Free delivery tomorrow</p>
+            <button class="btn btn-add">Add to cart</button>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <div class="product-thumb thumb-3"><span class="badge badge-sale">-55%</span></div>
+          <div class="product-body">
+            <p class="product-name">Non-Stick Cookware Set, 5 Pieces with Lids</p>
+            <div class="rating"><span class="stars" style="--pct:92%"></span><span class="rating-count">(1,205)</span></div>
+            <div class="price-row">
+              <span class="price">₹1,349</span>
+              <span class="price-strike">₹2,999</span>
+            </div>
+            <p class="delivery-note">Free delivery in 2 days</p>
+            <button class="btn btn-add">Add to cart</button>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <div class="product-thumb thumb-4"><span class="badge badge-sale">-25%</span></div>
+          <div class="product-body">
+            <p class="product-name">Women's Everyday Sneakers, Lightweight Sole</p>
+            <div class="rating"><span class="stars" style="--pct:84%"></span><span class="rating-count">(3,012)</span></div>
+            <div class="price-row">
+              <span class="price">₹1,499</span>
+              <span class="price-strike">₹1,999</span>
+            </div>
+            <p class="delivery-note">Free delivery tomorrow</p>
+            <button class="btn btn-add">Add to cart</button>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <div class="product-thumb thumb-5"><span class="badge badge-sale">-18%</span></div>
+          <div class="product-body">
+            <p class="product-name">Smart Fitness Band, Heart Rate &amp; SpO2 Tracking</p>
+            <div class="rating"><span class="stars" style="--pct:80%"></span><span class="rating-count">(4,558)</span></div>
+            <div class="price-row">
+              <span class="price">₹1,799</span>
+              <span class="price-strike">₹2,199</span>
+            </div>
+            <p class="delivery-note">Free delivery tomorrow</p>
+            <button class="btn btn-add">Add to cart</button>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <div class="product-thumb thumb-6"><span class="badge badge-sale">-33%</span></div>
+          <div class="product-body">
+            <p class="product-name">Organic Cold-Pressed Groundnut Oil, 1L</p>
+            <div class="rating"><span class="stars" style="--pct:90%"></span><span class="rating-count">(612)</span></div>
+            <div class="price-row">
+              <span class="price">₹249</span>
+              <span class="price-strike">₹369</span>
+            </div>
+            <p class="delivery-note">Free delivery in 2 days</p>
+            <button class="btn btn-add">Add to cart</button>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ VALUE PROPS ============ -->
+  <section class="value-props">
+    <div class="wrap value-grid">
+      <div class="value-item">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M3 7H14V17H3V7Z" stroke="currentColor" stroke-width="1.6"/><path d="M14 10H18L21 13.5V17H14V10Z" stroke="currentColor" stroke-width="1.6"/><circle cx="7" cy="19" r="1.6" stroke="currentColor" stroke-width="1.4"/><circle cx="17.5" cy="19" r="1.6" stroke="currentColor" stroke-width="1.4"/></svg>
+        <div><strong>Free delivery</strong><span>On orders above ₹499</span></div>
+      </div>
+      <div class="value-item">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M4 12L9 17L20 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <div><strong>7-day returns</strong><span>No questions asked</span></div>
+      </div>
+      <div class="value-item">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M12 3L20 6.5V11C20 16 16.5 19.7 12 21C7.5 19.7 4 16 4 11V6.5L12 3Z" stroke="currentColor" stroke-width="1.6"/></svg>
+        <div><strong>Secure payments</strong><span>UPI, cards &amp; wallets</span></div>
+      </div>
+      <div class="value-item">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M12 21C12 21 4 15.5 4 9.5C4 6.5 6.5 4 9.5 4C11 4 12 5 12 5C12 5 13 4 14.5 4C17.5 4 20 6.5 20 9.5C20 15.5 12 21 12 21Z" stroke="currentColor" stroke-width="1.6"/></svg>
+        <div><strong>24/7 support</strong><span>Real humans, always</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ BRAND STRIP ============ -->
+  <section class="brands" id="brands">
+    <div class="wrap">
+      <p class="brands-label">Trending brands this week</p>
+      <div class="brand-row">
+        <span>NORDLINE</span>
+        <span>Studio Weave</span>
+        <span>Kavali</span>
+        <span>Percept</span>
+        <span>Harbour &amp; Co.</span>
+        <span>ORBITAL</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ NEWSLETTER ============ -->
+  <section class="newsletter">
+    <div class="wrap newsletter-inner">
+      <div>
+        <h2>Get deals before anyone else.</h2>
+        <p>One email a week. Early access to flash sales, new arrivals and price drops.</p>
+      </div>
+      <form class="newsletter-form">
+        <input type="email" placeholder="you@example.com" aria-label="Email address" required>
+        <button type="submit" class="btn btn-primary">Notify me</button>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer">
+  <div class="wrap footer-grid">
+    <div class="footer-col footer-brand">
+      <a href="#" class="logo logo-footer">Bazario<span class="logo-dot">.</span></a>
+      <p>Everything you shop for, in one bazaar. Serving 19,000+ pin codes across India.</p>
+    </div>
+    <div class="footer-col">
+      <h3>Shop</h3>
+      <a href="#">Electronics</a>
+      <a href="#">Fashion</a>
+      <a href="#">Home &amp; Living</a>
+      <a href="#">Grocery</a>
+    </div>
+    <div class="footer-col">
+      <h3>Help</h3>
+      <a href="#">Track your order</a>
+      <a href="#">Returns &amp; refunds</a>
+      <a href="#">Shipping info</a>
+      <a href="#">Contact us</a>
+    </div>
+    <div class="footer-col">
+      <h3>Company</h3>
+      <a href="#">About Bazario</a>
+      <a href="#">Careers</a>
+      <a href="#">Sell with us</a>
+      <a href="#">Press</a>
+    </div>
+  </div>
+  <div class="wrap footer-bottom">
+    <p>&copy; 2026 Bazario Retail Pvt. Ltd. All rights reserved.</p>
+    <div class="footer-legal">
+      <a href="#">Privacy</a>
+      <a href="#">Terms</a>
+      <a href="#">Sitemap</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Mobile menu toggle
+  const menuToggle = document.getElementById('menuToggle');
+  const categoryNav = document.getElementById('categoryNav');
+  menuToggle.addEventListener('click', () => {
+    categoryNav.classList.toggle('open');
+    menuToggle.classList.toggle('open');
+  });
+
+  // Countdown timer
+  let totalSeconds = 5 * 3600 + 42 * 60 + 18;
+  const hEl = document.getElementById('cd-h');
+  const mEl = document.getElementById('cd-m');
+  const sEl = document.getElementById('cd-s');
+  function pad(n){ return n.toString().padStart(2,'0'); }
+  setInterval(() => {
+    if (totalSeconds <= 0) return;
+    totalSeconds--;
+    const h = Math.floor(totalSeconds / 3600);
+    const m = Math.floor((totalSeconds % 3600) / 60);
+    const s = totalSeconds % 60;
+    hEl.textContent = pad(h);
+    mEl.textContent = pad(m);
+    sEl.textContent = pad(s);
+  }, 1000);
+
+  // Add to cart interaction
+  let cartCount = 3;
+  const cartCountEl = document.getElementById('cartCount');
+  document.querySelectorAll('.btn-add').forEach(btn => {
+    btn.addEventListener('click', () => {
+      cartCount++;
+      cartCountEl.textContent = cartCount;
+      btn.textContent = 'Added ✓';
+      btn.classList.add('added');
+      setTimeout(() => {
+        btn.textContent = 'Add to cart';
+        btn.classList.remove('added');
+      }, 1200);
+    });
+  });
+</script>
+
+</body>
+</html>
