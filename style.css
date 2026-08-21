@@ -848,3 +848,50 @@ input, select{ font-family:inherit; font-size:inherit; }
   .newsletter-form{ width:100%; }
   .newsletter-form input{ flex:1; min-width:0; }
 }
+/* =================================
+   ORDERS SECTION
+================================= */
+
+.orders-section {
+  padding: 70px 0;
+  background: #f7f5f0;
+}
+
+.orders-empty {
+  max-width: 600px;
+  margin: 30px auto 0;
+  padding: 50px 30px;
+  text-align: center;
+  background: #fff;
+  border: 1px solid #e5e1d8;
+  border-radius: 16px;
+}
+
+.orders-icon {
+  font-size: 42px;
+  margin-bottom: 12px;
+}
+
+.orders-empty h3 {
+  margin: 0 0 8px;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 24px;
+}
+
+.orders-empty p {
+  margin: 0 0 24px;
+  color: #666;
+}
+
+
+/* =================================
+   ORDERS HEADER BUTTON
+================================= */
+
+.orders-item {
+  position: relative;
+}
+
+.orders-item:hover {
+  color: #e63946;
+}
