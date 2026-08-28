@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sell on Bazario</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=DM+Sans:wght@400;500;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="account-page">
+
+<div class="utility-bar">
+  <div class="wrap utility-inner">
+    <span class="utility-item">Delivering joy to <strong>Your place</strong></span>
+    <div class="utility-links">
+      <a href="help.html">Help centre</a>
+      <a href="index.html">Back to shop</a>
+    </div>
+  </div>
+</div>
+
+<header class="site-header">
+  <div class="wrap account-header-inner">
+    <a href="index.html" class="logo">Bazario<span class="logo-dot">.</span></a>
+    <a href="index.html" class="account-back-link">&larr; Continue shopping</a>
+  </div>
+</header>
+
+<main class="seller-main">
+  <div class="wrap seller-layout">
+    <section class="seller-intro" aria-labelledby="sellerTitle">
+      <p class="dialog-kicker">Your next customer is here</p>
+      <h1 id="sellerTitle">Sell on Bazario</h1>
+      <p>Put your products in front of thousands of shoppers and grow your business with simple tools.</p>
+      <ul class="seller-benefits">
+        <li>Reach shoppers across 19,000+ pin codes</li>
+        <li>Simple product and order management</li>
+        <li>Reliable payments and seller support</li>
+      </ul>
+    </section>
+
+    <section class="account-panel seller-panel" aria-labelledby="sellerFormTitle">
+      <h2 id="sellerFormTitle">Start selling today</h2>
+      <p class="account-page-copy">Tell us about your business and our team will be in touch.</p>
+      <form class="account-form" id="sellerForm">
+        <label for="sellerName">Your name</label>
+        <input type="text" id="sellerName" required>
+
+        <label for="storeName">Store name</label>
+        <input type="text" id="storeName" required>
+
+        <label for="sellerEmail">Email address</label>
+        <input type="email" id="sellerEmail" required>
+
+        <label for="sellerCategory">Product category</label>
+        <select id="sellerCategory" required>
+          <option value="">Choose a category</option>
+          <option>Electronics</option>
+          <option>Fashion</option>
+          <option>Home &amp; Living</option>
+          <option>Beauty</option>
+          <option>Grocery</option>
+          <option>Other</option>
+        </select>
+
+        <button type="submit" class="btn btn-primary">Apply to sell</button>
+      </form>
+      <p class="account-page-status" id="sellerStatus" role="status" aria-live="polite"></p>
+    </section>
+  </div>
+</main>
+
+<script>
+  document.getElementById('sellerForm').addEventListener('submit', (event) => {
+    event.preventDefault();
+    const sellerName = document.getElementById('sellerName').value.trim();
+    document.getElementById('sellerStatus').textContent = `Thanks, ${sellerName}. We will contact you soon.`;
+    event.target.reset();
+  });
+</script>
+
+</body>
+</html>

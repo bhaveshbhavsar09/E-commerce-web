@@ -970,6 +970,22 @@ input, select{ font-family:inherit; font-size:inherit; }
 .contact-strip p:not(.dialog-kicker){ margin:8px 0 0; color:#D6D6D6; }
 .contact-strip .dialog-kicker{ color:var(--yellow); }
 
+.seller-main{ padding:64px 0 82px; }
+.seller-layout{ display:grid; grid-template-columns:1fr 1fr; gap:48px; align-items:center; }
+.seller-intro h1{ margin:0; font-family:var(--font-display); font-size:54px; line-height:1.02; }
+.seller-intro > p:not(.dialog-kicker){ max-width:480px; margin:16px 0 28px; color:var(--ink-soft); font-size:17px; line-height:1.55; }
+.seller-benefits{ display:grid; gap:14px; padding:0; margin:0; list-style:none; font-weight:700; }
+.seller-benefits li{ padding-left:26px; position:relative; }
+.seller-benefits li::before{ content:'+'; position:absolute; left:0; color:var(--pink-deep); font-family:var(--font-mono); font-size:18px; }
+.seller-panel h2{ margin:0; font-family:var(--font-display); font-size:25px; }
+.seller-panel select{ width:100%; height:44px; padding:0 12px; border:var(--border-w) solid var(--ink); border-radius:var(--radius-s); background:var(--paper); }
+
+@media (max-width: 720px){
+  .seller-main{ padding:42px 0 58px; }
+  .seller-layout{ grid-template-columns:1fr; gap:32px; }
+  .seller-intro h1{ font-size:42px; }
+}
+
 @media (max-width: 520px){
   .account-header-inner{ padding:16px 20px; }
   .account-back-link{ font-size:12px; }
