@@ -75,9 +75,15 @@
 <script>
   document.getElementById('sellerForm').addEventListener('submit', (event) => {
     event.preventDefault();
-    const sellerName = document.getElementById('sellerName').value.trim();
-    document.getElementById('sellerStatus').textContent = `Thanks, ${sellerName}. We will contact you soon.`;
-    event.target.reset();
+    const sellerDetails = {
+      name: document.getElementById('sellerName').value.trim(),
+      store: document.getElementById('storeName').value.trim(),
+      email: document.getElementById('sellerEmail').value.trim(),
+      category: document.getElementById('sellerCategory').value
+    };
+
+    sessionStorage.setItem('bazarioSeller', JSON.stringify(sellerDetails));
+    window.location.href = 'seller-profile.html';
   });
 </script>
 

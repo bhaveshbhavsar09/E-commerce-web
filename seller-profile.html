@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Seller Profile — Bazario</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=DM+Sans:wght@400;500;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="account-page seller-profile-page">
+
+<div class="utility-bar">
+  <div class="wrap utility-inner">
+    <span class="utility-item">Seller centre <strong id="sellerStoreUtility">Your store</strong></span>
+    <div class="utility-links">
+      <a href="help.html">Help centre</a>
+      <a href="index.html">Back to shop</a>
+    </div>
+  </div>
+</div>
+
+<header class="site-header">
+  <div class="wrap account-header-inner">
+    <a href="index.html" class="logo">Bazario<span class="logo-dot">.</span></a>
+    <a href="sell.html" class="account-back-link">&larr; Seller settings</a>
+  </div>
+</header>
+
+<main class="account-overview seller-overview">
+  <div class="wrap">
+    <div class="account-overview-head">
+      <div>
+        <p class="dialog-kicker">Seller profile</p>
+        <h1 id="sellerHeading">Your store</h1>
+        <p>Manage your seller information and grow your Bazario business.</p>
+      </div>
+      <a href="index.html" class="btn btn-primary">View marketplace</a>
+    </div>
+
+    <div class="profile-grid">
+      <section class="profile-card profile-details" aria-labelledby="sellerDetailsTitle">
+        <h2 id="sellerDetailsTitle">Business information</h2>
+        <dl>
+          <div><dt>Store name</dt><dd id="profileStore">Not provided</dd></div>
+          <div><dt>Owner name</dt><dd id="profileName">Not provided</dd></div>
+          <div><dt>Seller email</dt><dd id="profileEmail">Not provided</dd></div>
+          <div><dt>Product category</dt><dd id="profileCategory">Not provided</dd></div>
+        </dl>
+      </section>
+
+      <section class="profile-card" aria-labelledby="listingTitle">
+        <h2 id="listingTitle">Listings</h2>
+        <p class="profile-card-number">0</p>
+        <p class="profile-card-note">Add your first product to start selling.</p>
+        <a href="sell.html" class="profile-card-link">Manage products &rarr;</a>
+      </section>
+
+      <section class="profile-card" aria-labelledby="sellerOrdersTitle">
+        <h2 id="sellerOrdersTitle">Seller orders</h2>
+        <p class="profile-card-number">0</p>
+        <p class="profile-card-note">Your customer orders will appear here.</p>
+        <a href="help.html" class="profile-card-link">Seller support &rarr;</a>
+      </section>
+    </div>
+  </div>
+</main>
+
+<script>
+  const sellerDetails = JSON.parse(sessionStorage.getItem('bazarioSeller') || 'null');
+
+  if (!sellerDetails) {
+    window.location.href = 'sell.html';
+  } else {
+    document.getElementById('sellerStoreUtility').textContent = sellerDetails.store;
+    document.getElementById('sellerHeading').textContent = sellerDetails.store;
+    document.getElementById('profileStore').textContent = sellerDetails.store;
+    document.getElementById('profileName').textContent = sellerDetails.name;
+    document.getElementById('profileEmail').textContent = sellerDetails.email;
+    document.getElementById('profileCategory').textContent = sellerDetails.category;
+  }
+</script>
+
+</body>
+</html>

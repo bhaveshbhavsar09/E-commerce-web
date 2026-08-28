@@ -979,6 +979,8 @@ input, select{ font-family:inherit; font-size:inherit; }
 .seller-benefits li::before{ content:'+'; position:absolute; left:0; color:var(--pink-deep); font-family:var(--font-mono); font-size:18px; }
 .seller-panel h2{ margin:0; font-family:var(--font-display); font-size:25px; }
 .seller-panel select{ width:100%; height:44px; padding:0 12px; border:var(--border-w) solid var(--ink); border-radius:var(--radius-s); background:var(--paper); }
+.seller-overview{ background:var(--surface); }
+.seller-profile-page .profile-card{ box-shadow:6px 6px 0 var(--green-deep); }
 
 @media (max-width: 720px){
   .seller-main{ padding:42px 0 58px; }
