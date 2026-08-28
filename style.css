@@ -175,6 +175,7 @@ input, select{ font-family:inherit; font-size:inherit; }
 .action-item:hover{ color:var(--pink); }
 .action-item:hover svg{ stroke:var(--pink); }
 .account-item{ appearance:none; }
+.cart-item{ appearance:none; }
 .cart-count{
   position:absolute;
   top:-8px;
@@ -918,3 +919,5 @@ input, select{ font-family:inherit; font-size:inherit; }
 .account-form .btn{ margin-top:8px; width:100%; }
 .account-dialog-foot{ margin:20px 0 0; font-size:13px; text-align:center; }
 .account-dialog-foot button{ color:var(--blue-deep); font-weight:700; text-decoration:underline; }
+.cart-dialog-actions{ display:flex; gap:12px; }
+.cart-dialog-actions .btn{ flex:1; text-align:center; }

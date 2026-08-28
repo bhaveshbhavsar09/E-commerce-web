@@ -82,7 +82,7 @@
     <nav class="header-actions">
 
       <!-- WISHLIST -->
-      <a href="#" class="action-item">
+      <button type="button" class="action-item cart-item" id="cartButton" aria-haspopup="dialog" aria-controls="cartDialog">
 
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
           <path
@@ -94,7 +94,7 @@
 
         <span>Wishlist</span>
 
-      </a>
+      </button>
 
 
       <!-- ORDERS -->
@@ -939,6 +939,27 @@
 </dialog>
 
 
+<dialog class="account-dialog cart-dialog" id="cartDialog" aria-labelledby="cartDialogTitle">
+
+  <div class="account-dialog-head">
+    <div>
+      <p class="dialog-kicker">Ready when you are</p>
+      <h2 id="cartDialogTitle">Your cart</h2>
+    </div>
+
+    <button type="button" class="dialog-close" id="cartDialogClose" aria-label="Close cart dialog">&times;</button>
+  </div>
+
+  <p class="account-dialog-copy"><strong id="cartDialogCount">3 items</strong> are waiting in your cart.</p>
+
+  <div class="cart-dialog-actions">
+    <a href="#deals" class="btn btn-primary" id="continueShoppingButton">Continue shopping</a>
+    <button type="button" class="btn btn-ghost" id="checkoutButton">Checkout</button>
+  </div>
+
+</dialog>
+
+
 <!-- ============ JAVASCRIPT ============ -->
 
 <script>
@@ -967,6 +988,21 @@
 
   const createAccountButton =
     document.getElementById('createAccountButton');
+
+  const cartButton =
+    document.getElementById('cartButton');
+
+  const cartDialog =
+    document.getElementById('cartDialog');
+
+  const cartDialogClose =
+    document.getElementById('cartDialogClose');
+
+  const cartDialogCount =
+    document.getElementById('cartDialogCount');
+
+  const checkoutButton =
+    document.getElementById('checkoutButton');
 
   menuToggle.addEventListener('click', () => {
 
@@ -999,6 +1035,24 @@
     accountDialog.querySelector('.dialog-kicker').textContent = 'Join Bazario';
     accountDialog.querySelector('.account-dialog-copy').textContent = 'Create an account to save favourites and checkout faster.';
     createAccountButton.hidden = true;
+  });
+
+  cartButton.addEventListener('click', () => {
+    cartDialogCount.textContent = `${cartCount} ${cartCount === 1 ? 'item' : 'items'}`;
+    cartDialog.showModal();
+  });
+
+  cartDialogClose.addEventListener('click', () => {
+    cartDialog.close();
+  });
+
+  cartDialog.addEventListener('click', (event) => {
+    if (event.target === cartDialog) cartDialog.close();
+  });
+
+  checkoutButton.addEventListener('click', () => {
+    cartDialog.close();
+    alert('Checkout is ready for your cart.');
   });
 
 
