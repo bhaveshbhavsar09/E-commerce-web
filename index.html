@@ -160,7 +160,7 @@
 
 
       <!-- ACCOUNT -->
-      <a href="#" class="action-item account-item">
+      <button type="button" class="action-item account-item" id="accountButton" aria-haspopup="dialog" aria-controls="accountDialog">
 
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
 
@@ -183,7 +183,7 @@
 
         <span>Account</span>
 
-      </a>
+      </button>
 
     </nav>
 
@@ -912,6 +912,33 @@
 </footer>
 
 
+<!-- ============ ACCOUNT DIALOG ============ -->
+
+<dialog class="account-dialog" id="accountDialog" aria-labelledby="accountDialogTitle">
+
+  <div class="account-dialog-head">
+    <div>
+      <p class="dialog-kicker">Welcome back</p>
+      <h2 id="accountDialogTitle">Your Bazario account</h2>
+    </div>
+
+    <button type="button" class="dialog-close" id="accountDialogClose" aria-label="Close account dialog">&times;</button>
+  </div>
+
+  <p class="account-dialog-copy">Sign in to view orders, save favourites and checkout faster.</p>
+
+  <form class="account-form" id="accountForm">
+    <label for="accountEmail">Email address</label>
+    <input type="email" id="accountEmail" placeholder="you@example.com" required>
+
+    <button type="submit" class="btn btn-primary">Continue</button>
+  </form>
+
+  <p class="account-dialog-foot">New here? <button type="button" id="createAccountButton">Create an account</button></p>
+
+</dialog>
+
+
 <!-- ============ JAVASCRIPT ============ -->
 
 <script>
@@ -926,12 +953,52 @@
   const categoryNav =
     document.getElementById('categoryNav');
 
+  const accountButton =
+    document.getElementById('accountButton');
+
+  const accountDialog =
+    document.getElementById('accountDialog');
+
+  const accountDialogClose =
+    document.getElementById('accountDialogClose');
+
+  const accountForm =
+    document.getElementById('accountForm');
+
+  const createAccountButton =
+    document.getElementById('createAccountButton');
+
   menuToggle.addEventListener('click', () => {
 
     categoryNav.classList.toggle('open');
 
     menuToggle.classList.toggle('open');
 
+  });
+
+  accountButton.addEventListener('click', () => {
+    accountDialog.showModal();
+  });
+
+  accountDialogClose.addEventListener('click', () => {
+    accountDialog.close();
+  });
+
+  accountDialog.addEventListener('click', (event) => {
+    if (event.target === accountDialog) accountDialog.close();
+  });
+
+  accountForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+    accountDialog.close();
+    accountButton.querySelector('span').textContent = 'Signed in';
+  });
+
+  createAccountButton.addEventListener('click', () => {
+    accountForm.querySelector('button').textContent = 'Create account';
+    accountDialog.querySelector('.dialog-kicker').textContent = 'Join Bazario';
+    accountDialog.querySelector('.account-dialog-copy').textContent = 'Create an account to save favourites and checkout faster.';
+    createAccountButton.hidden = true;
   });
 
 
