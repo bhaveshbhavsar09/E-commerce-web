@@ -952,6 +952,24 @@ input, select{ font-family:inherit; font-size:inherit; }
 .profile-card-link{ color:var(--blue-deep); font-size:13px; font-weight:700; }
 .profile-card-link:hover{ color:var(--pink-deep); }
 
+.help-main{ padding:58px 0 80px; }
+.help-hero{ padding:42px; background:var(--yellow); border:var(--border-w) solid var(--ink); box-shadow:8px 8px 0 var(--ink); }
+.help-hero h1{ margin:0; font-family:var(--font-display); font-size:46px; line-height:1.05; }
+.help-hero > p:not(.dialog-kicker){ margin:12px 0 24px; color:var(--ink-soft); }
+.help-search{ display:flex; max-width:620px; gap:10px; }
+.help-search input{ flex:1; min-width:0; height:46px; padding:0 14px; border:var(--border-w) solid var(--ink); border-radius:var(--radius-s); font:inherit; }
+.help-status{ min-height:20px; margin:24px 0 10px; font-size:13px; font-weight:700; }
+.help-grid{ display:grid; grid-template-columns:repeat(2, 1fr); gap:20px; }
+.help-card{ padding:24px; background:var(--paper); border:var(--border-w) solid var(--ink); border-radius:var(--radius-s); box-shadow:5px 5px 0 var(--ink); }
+.help-card[hidden]{ display:none; }
+.help-card summary{ cursor:pointer; font-family:var(--font-display); font-size:20px; font-weight:700; }
+.help-card p{ margin:16px 0; color:var(--ink-soft); line-height:1.55; }
+.help-card a{ color:var(--blue-deep); font-size:13px; font-weight:700; }
+.contact-strip{ display:flex; justify-content:space-between; align-items:center; gap:24px; margin-top:42px; padding:28px; background:var(--ink); color:var(--paper); }
+.contact-strip h2{ margin:0; font-family:var(--font-display); font-size:25px; }
+.contact-strip p:not(.dialog-kicker){ margin:8px 0 0; color:#D6D6D6; }
+.contact-strip .dialog-kicker{ color:var(--yellow); }
+
 @media (max-width: 520px){
   .account-header-inner{ padding:16px 20px; }
   .account-back-link{ font-size:12px; }
@@ -965,4 +983,12 @@ input, select{ font-family:inherit; font-size:inherit; }
   .profile-grid{ grid-template-columns:1fr; }
   .profile-details{ grid-column:auto; }
   .profile-card dl{ grid-template-columns:1fr; gap:16px; }
+  .help-main{ padding:36px 0 56px; }
+  .help-hero{ padding:28px 22px; }
+  .help-hero h1{ font-size:35px; }
+  .help-search{ display:grid; }
+  .help-search .btn{ width:100%; }
+  .help-grid{ grid-template-columns:1fr; }
+  .contact-strip{ display:block; }
+  .contact-strip .btn{ display:inline-block; margin-top:20px; }
 }

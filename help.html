@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Help Centre — Bazario</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=DM+Sans:wght@400;500;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="help-page">
+
+<div class="utility-bar">
+  <div class="wrap utility-inner">
+    <span class="utility-item">Delivering joy to <strong>Your place</strong></span>
+    <div class="utility-links">
+      <a href="index.html#orders">Track order</a>
+      <a href="index.html">Back to shop</a>
+    </div>
+  </div>
+</div>
+
+<header class="site-header">
+  <div class="wrap account-header-inner">
+    <a href="index.html" class="logo">Bazario<span class="logo-dot">.</span></a>
+    <a href="index.html" class="account-back-link">&larr; Continue shopping</a>
+  </div>
+</header>
+
+<main class="help-main">
+  <div class="wrap">
+    <section class="help-hero" aria-labelledby="helpTitle">
+      <p class="dialog-kicker">Support, sorted</p>
+      <h1 id="helpTitle">How can we help?</h1>
+      <p>Find quick answers about your orders, delivery, returns and payments.</p>
+      <form class="help-search" id="helpSearchForm" role="search">
+        <input type="search" id="helpSearch" placeholder="Search help topics" aria-label="Search help topics">
+        <button type="submit" class="btn btn-primary">Search</button>
+      </form>
+    </section>
+
+    <p class="help-status" id="helpStatus" role="status" aria-live="polite"></p>
+
+    <div class="help-grid" id="helpTopics">
+      <details class="help-card" open>
+        <summary>Orders and tracking</summary>
+        <p>Open the Orders section on the shop page to see your recent purchases. Tracking updates appear as soon as your order ships.</p>
+        <a href="index.html#orders">View orders &rarr;</a>
+      </details>
+
+      <details class="help-card">
+        <summary>Delivery information</summary>
+        <p>Most products arrive the next day, while some locations and grocery items may take up to two days. Delivery availability is shown on each product.</p>
+      </details>
+
+      <details class="help-card">
+        <summary>Returns and refunds</summary>
+        <p>Eligible items can be returned within 7 days. Start a return from your order details and refunds are sent after the item is received.</p>
+      </details>
+
+      <details class="help-card">
+        <summary>Payments and security</summary>
+        <p>Bazario accepts UPI, cards and wallets. Your payment information is protected with secure checkout processing.</p>
+      </details>
+    </div>
+
+    <section class="contact-strip" aria-labelledby="contactTitle">
+      <div>
+        <p class="dialog-kicker">Still need a hand?</p>
+        <h2 id="contactTitle">Talk to a real person</h2>
+        <p>Our support team is available 24/7 for order and delivery questions.</p>
+      </div>
+      <a class="btn btn-primary" href="mailto:help@bazario.example">Email support</a>
+    </section>
+  </div>
+</main>
+
+<script>
+  const helpForm = document.getElementById('helpSearchForm');
+  const helpInput = document.getElementById('helpSearch');
+  const helpStatus = document.getElementById('helpStatus');
+  const helpCards = [...document.querySelectorAll('.help-card')];
+
+  helpForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+    const query = helpInput.value.trim().toLowerCase();
+    let matches = 0;
+
+    helpCards.forEach((card) => {
+      const match = !query || card.textContent.toLowerCase().includes(query);
+      card.hidden = !match;
+      if (match) matches++;
+    });
+
+    helpStatus.textContent = query ? `${matches} help topic${matches === 1 ? '' : 's'} found.` : '';
+  });
+</script>
+
+</body>
+</html>
