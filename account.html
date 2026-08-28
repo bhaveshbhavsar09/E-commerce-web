@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Account — Bazario</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=DM+Sans:wght@400;500;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="account-page">
+
+<div class="utility-bar">
+  <div class="wrap utility-inner">
+    <span class="utility-item">Delivering joy to <strong>Your place</strong></span>
+    <div class="utility-links">
+      <a href="index.html#orders">Track order</a>
+      <a href="index.html">Back to shop</a>
+    </div>
+  </div>
+</div>
+
+<header class="site-header">
+  <div class="wrap account-header-inner">
+    <a href="index.html" class="logo">Bazario<span class="logo-dot">.</span></a>
+    <a href="index.html" class="account-back-link">&larr; Continue shopping</a>
+  </div>
+</header>
+
+<main class="account-main">
+  <section class="account-panel" aria-labelledby="accountTitle">
+    <p class="dialog-kicker" id="accountKicker">Welcome back</p>
+    <h1 id="accountTitle">Sign in to Bazario</h1>
+    <p class="account-page-copy" id="accountCopy">View orders, save favourites and checkout faster.</p>
+
+    <form class="account-form" id="accountPageForm">
+      <label for="accountEmail">Email address</label>
+      <input type="email" id="accountEmail" placeholder="you@example.com" required>
+
+      <label for="accountPassword">Password</label>
+      <input type="password" id="accountPassword" placeholder="Enter your password" minlength="6" required>
+
+      <button type="submit" class="btn btn-primary" id="accountSubmit">Sign in</button>
+    </form>
+
+    <p class="account-page-status" id="accountStatus" role="status" aria-live="polite"></p>
+    <p class="account-switch">New here? <button type="button" id="accountModeButton">Create an account</button></p>
+  </section>
+</main>
+
+<script>
+  const accountForm = document.getElementById('accountPageForm');
+  const accountKicker = document.getElementById('accountKicker');
+  const accountTitle = document.getElementById('accountTitle');
+  const accountCopy = document.getElementById('accountCopy');
+  const accountSubmit = document.getElementById('accountSubmit');
+  const accountModeButton = document.getElementById('accountModeButton');
+  const accountStatus = document.getElementById('accountStatus');
+  let createMode = false;
+
+  accountModeButton.addEventListener('click', () => {
+    createMode = !createMode;
+    accountKicker.textContent = createMode ? 'Join Bazario' : 'Welcome back';
+    accountTitle.textContent = createMode ? 'Create your account' : 'Sign in to Bazario';
+    accountCopy.textContent = createMode
+      ? 'Save favourites and checkout faster on your next visit.'
+      : 'View orders, save favourites and checkout faster.';
+    accountSubmit.textContent = createMode ? 'Create account' : 'Sign in';
+    accountModeButton.textContent = createMode ? 'Sign in instead' : 'Create an account';
+    accountStatus.textContent = '';
+  });
+
+  accountForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+    accountStatus.textContent = createMode
+      ? 'Your account is ready to go.'
+      : 'You are signed in for this session.';
+  });
+</script>
+
+</body>
+</html>

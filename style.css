@@ -917,7 +917,25 @@ input, select{ font-family:inherit; font-size:inherit; }
 .account-form label{ font-size:12px; font-weight:700; }
 .account-form input{ width:100%; height:44px; padding:0 12px; border:var(--border-w) solid var(--ink); border-radius:var(--radius-s); }
 .account-form .btn{ margin-top:8px; width:100%; }
-.account-dialog-foot{ margin:20px 0 0; font-size:13px; text-align:center; }
-.account-dialog-foot button{ color:var(--blue-deep); font-weight:700; text-decoration:underline; }
 .cart-dialog-actions{ display:flex; gap:12px; }
 .cart-dialog-actions .btn{ flex:1; text-align:center; }
+
+.account-page{ min-height:100vh; background:var(--surface); }
+.account-header-inner{ display:flex; align-items:center; justify-content:space-between; padding:18px 24px; }
+.account-back-link{ font-weight:700; font-size:14px; }
+.account-back-link:hover{ color:var(--pink); }
+.account-main{ min-height:calc(100vh - 126px); display:grid; place-items:center; padding:56px 24px; }
+.account-panel{ width:min(460px, 100%); padding:38px; background:var(--paper); border:var(--border-w) solid var(--ink); border-radius:var(--radius-s); box-shadow:8px 8px 0 var(--ink); }
+.account-panel h1{ margin:0; font-family:var(--font-display); font-size:34px; line-height:1.1; }
+.account-page-copy{ margin:14px 0 26px; color:var(--ink-soft); line-height:1.5; }
+.account-page-status{ min-height:20px; margin:16px 0 0; color:var(--green-deep); font-size:13px; font-weight:700; }
+.account-switch{ margin:22px 0 0; padding-top:20px; border-top:1.5px solid #D7D0BA; text-align:center; font-size:13px; }
+.account-switch button{ color:var(--blue-deep); font-weight:700; text-decoration:underline; }
+
+@media (max-width: 520px){
+  .account-header-inner{ padding:16px 20px; }
+  .account-back-link{ font-size:12px; }
+  .account-main{ padding:36px 20px; }
+  .account-panel{ padding:28px 22px; }
+  .account-panel h1{ font-size:29px; }
+}
