@@ -931,6 +931,26 @@ input, select{ font-family:inherit; font-size:inherit; }
 .account-page-status{ min-height:20px; margin:16px 0 0; color:var(--green-deep); font-size:13px; font-weight:700; }
 .account-switch{ margin:22px 0 0; padding-top:20px; border-top:1.5px solid #D7D0BA; text-align:center; font-size:13px; }
 .account-switch button{ color:var(--blue-deep); font-weight:700; text-decoration:underline; }
+.create-account-fields{ display:grid; gap:8px; }
+.create-account-fields[hidden]{ display:none; }
+.account-form textarea{ width:100%; padding:10px 12px; border:var(--border-w) solid var(--ink); border-radius:var(--radius-s); resize:vertical; font:inherit; }
+
+.account-overview{ padding:64px 0 80px; }
+.account-overview-head{ display:flex; justify-content:space-between; align-items:end; gap:28px; margin-bottom:34px; }
+.account-overview-head h1{ margin:0; font-family:var(--font-display); font-size:42px; line-height:1.1; }
+.account-overview-head p:not(.dialog-kicker){ margin:12px 0 0; color:var(--ink-soft); }
+.profile-grid{ display:grid; grid-template-columns:repeat(2, 1fr); gap:22px; }
+.profile-card{ padding:26px; background:var(--paper); border:var(--border-w) solid var(--ink); border-radius:var(--radius-s); box-shadow:6px 6px 0 var(--ink); }
+.profile-details{ grid-column:1 / -1; }
+.profile-card h2{ margin:0 0 20px; font-family:var(--font-display); font-size:21px; }
+.profile-card dl{ display:grid; grid-template-columns:repeat(2, 1fr); gap:20px 32px; margin:0; }
+.profile-card dl div{ min-width:0; }
+.profile-card dt{ margin-bottom:5px; color:var(--slate); font-family:var(--font-mono); font-size:11px; text-transform:uppercase; }
+.profile-card dd{ margin:0; font-size:16px; font-weight:700; overflow-wrap:anywhere; white-space:pre-line; }
+.profile-card-number{ margin:0 0 6px; font-family:var(--font-display); font-size:42px; font-weight:700; }
+.profile-card-note{ margin:0 0 18px; color:var(--ink-soft); line-height:1.5; }
+.profile-card-link{ color:var(--blue-deep); font-size:13px; font-weight:700; }
+.profile-card-link:hover{ color:var(--pink-deep); }
 
 @media (max-width: 520px){
   .account-header-inner{ padding:16px 20px; }
@@ -938,4 +958,11 @@ input, select{ font-family:inherit; font-size:inherit; }
   .account-main{ padding:36px 20px; }
   .account-panel{ padding:28px 22px; }
   .account-panel h1{ font-size:29px; }
+  .account-overview{ padding:40px 0 56px; }
+  .account-overview-head{ display:block; }
+  .account-overview-head h1{ font-size:34px; }
+  .account-overview-head .btn{ display:inline-block; margin-top:22px; }
+  .profile-grid{ grid-template-columns:1fr; }
+  .profile-details{ grid-column:auto; }
+  .profile-card dl{ grid-template-columns:1fr; gap:16px; }
 }

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Account — Bazario</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=DM+Sans:wght@400;500;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="account-page">
+
+<div class="utility-bar">
+  <div class="wrap utility-inner">
+    <span class="utility-item">Delivering joy to <strong id="profileLocation">Your place</strong></span>
+    <div class="utility-links">
+      <a href="index.html#orders">Track order</a>
+      <a href="index.html">Back to shop</a>
+    </div>
+  </div>
+</div>
+
+<header class="site-header">
+  <div class="wrap account-header-inner">
+    <a href="index.html" class="logo">Bazario<span class="logo-dot">.</span></a>
+    <a href="index.html" class="account-back-link">&larr; Continue shopping</a>
+  </div>
+</header>
+
+<main class="account-overview">
+  <div class="wrap">
+    <div class="account-overview-head">
+      <div>
+        <p class="dialog-kicker">Account section</p>
+        <h1 id="profileHeading">Hello there</h1>
+        <p>Here is all the information saved to your Bazario account.</p>
+      </div>
+      <a href="index.html#orders" class="btn btn-primary">View orders</a>
+    </div>
+
+    <div class="profile-grid">
+      <section class="profile-card profile-details" aria-labelledby="detailsTitle">
+        <h2 id="detailsTitle">Personal information</h2>
+        <dl>
+          <div><dt>Full name</dt><dd id="profileName">Not provided</dd></div>
+          <div><dt>Email address</dt><dd id="profileEmail">Not provided</dd></div>
+          <div><dt>Phone number</dt><dd id="profilePhone">Not provided</dd></div>
+          <div><dt>Delivery address</dt><dd id="profileAddress">Not provided</dd></div>
+        </dl>
+      </section>
+
+      <section class="profile-card" aria-labelledby="ordersTitle">
+        <h2 id="ordersTitle">Orders</h2>
+        <p class="profile-card-number">0</p>
+        <p class="profile-card-note">No orders yet. Your purchases will appear here.</p>
+        <a href="index.html#deals" class="profile-card-link">Start shopping &rarr;</a>
+      </section>
+
+      <section class="profile-card" aria-labelledby="savedTitle">
+        <h2 id="savedTitle">Saved items</h2>
+        <p class="profile-card-number">0</p>
+        <p class="profile-card-note">Save products you love for later.</p>
+        <a href="index.html#deals" class="profile-card-link">Browse deals &rarr;</a>
+      </section>
+    </div>
+  </div>
+</main>
+
+<script>
+  const accountDetails = JSON.parse(sessionStorage.getItem('bazarioAccount') || 'null');
+
+  if (!accountDetails) {
+    window.location.href = 'account.html';
+  } else {
+    document.getElementById('profileHeading').textContent = `Hello, ${accountDetails.name}`;
+    document.getElementById('profileLocation').textContent = accountDetails.name;
+    document.getElementById('profileName').textContent = accountDetails.name;
+    document.getElementById('profileEmail').textContent = accountDetails.email;
+    document.getElementById('profilePhone').textContent = accountDetails.phone;
+    document.getElementById('profileAddress').textContent = accountDetails.address;
+  }
+</script>
+
+</body>
+</html>

@@ -35,6 +35,17 @@
     <p class="account-page-copy" id="accountCopy">View orders, save favourites and checkout faster.</p>
 
     <form class="account-form" id="accountPageForm">
+      <div class="create-account-fields" id="createAccountFields" hidden>
+        <label for="accountName">Full name</label>
+        <input type="text" id="accountName" placeholder="Your full name">
+
+        <label for="accountPhone">Phone number</label>
+        <input type="tel" id="accountPhone" placeholder="Your phone number">
+
+        <label for="accountAddress">Delivery address</label>
+        <textarea id="accountAddress" rows="3" placeholder="Your delivery address"></textarea>
+      </div>
+
       <label for="accountEmail">Email address</label>
       <input type="email" id="accountEmail" placeholder="you@example.com" required>
 
@@ -57,6 +68,12 @@
   const accountSubmit = document.getElementById('accountSubmit');
   const accountModeButton = document.getElementById('accountModeButton');
   const accountStatus = document.getElementById('accountStatus');
+  const createAccountFields = document.getElementById('createAccountFields');
+  const profileFields = [
+    document.getElementById('accountName'),
+    document.getElementById('accountPhone'),
+    document.getElementById('accountAddress')
+  ];
   let createMode = false;
 
   accountModeButton.addEventListener('click', () => {
@@ -68,14 +85,29 @@
       : 'View orders, save favourites and checkout faster.';
     accountSubmit.textContent = createMode ? 'Create account' : 'Sign in';
     accountModeButton.textContent = createMode ? 'Sign in instead' : 'Create an account';
+    createAccountFields.hidden = !createMode;
+    profileFields.forEach((field) => {
+      field.required = createMode;
+    });
     accountStatus.textContent = '';
   });
 
   accountForm.addEventListener('submit', (event) => {
     event.preventDefault();
-    accountStatus.textContent = createMode
-      ? 'Your account is ready to go.'
-      : 'You are signed in for this session.';
+    if (createMode) {
+      const accountDetails = {
+        name: document.getElementById('accountName').value.trim(),
+        email: document.getElementById('accountEmail').value.trim(),
+        phone: document.getElementById('accountPhone').value.trim(),
+        address: document.getElementById('accountAddress').value.trim()
+      };
+
+      sessionStorage.setItem('bazarioAccount', JSON.stringify(accountDetails));
+      window.location.href = 'account-profile.html';
+      return;
+    }
+
+    accountStatus.textContent = 'You are signed in for this session.';
   });
 </script>
 
